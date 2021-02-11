@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Archer TRMS Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/CSS" href="login.css">
+
+</head>
+<body>
+
+    <h2>TRMS Login</h2>
+
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter Password">
+        </div>
+        <button type="button" id="submit" class="btn btn-primary" onclick="login()">Login</button>
+    </form>
+
+    <p id="wrongCreds" style="color: red"></p>
+    
+</body>
+
+<script>
+    function login() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        
+
+        let emp = {
+            empEmail: email,
+            empPassword: password
+        }
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                if(this.responseText != "{}") {
+                    document.cookie=`empEmail = ${emp.empEmail}; path = 'http://localhost:8080/TrmsApp/main.html'; path = http://localhost:8080/TrmsApp/createform.html; path = http://localhost:8080/TrmsApp/getTR.do; path = http://localhost:8080/TrmsApp/getApp.do; path = http://localhost:8080/TrmsApp/appform.html;`
+                    window.location.href="http://localhost:8080/TrmsApp/main.html"
+                }
+            }
+                
+            
+        }
+
+        console.log(emp);
+        console.log(JSON.stringify(emp));
+
+        xhttp.open("POST", "http://localhost:8080/TrmsApp/login.do", true);
+
+        xhttp.setRequestHeader('Content-Type', 'application/json');
+
+        xhttp.send(JSON.stringify(emp));
+    }
+</script>
+
+</html>
+
+

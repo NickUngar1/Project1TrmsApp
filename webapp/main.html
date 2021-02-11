@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+        
+    <div class="nav">
+        <div class="left">
+            <div id="name"><b>full name</b></div>
+        </div>
+        <div class="right">
+            <div id="eid">Employee ID</div>
+            <div id="sid">Supervisor ID</div>
+            <div id="did">Department ID</div>
+        </div>
+    </div>
+
+    <!--main four options-->
+    <div class="content-wrapper">
+           <div class="portfolio-items-wrapper">
+ 
+               <div class="portfolio-item-wrapper">
+                   <div class="portfolio-img-background" style="background-image:url(https://images.unsplash.com/photo-1554252116-30abdf759321?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)"></div>
+                   <div class="img-text-wrapper">
+                       <div class="subtitle">
+                        <a href="http://localhost:8080/TrmsApp/createform.html" target="_blank">Submit a Tuition Reimbursement Form</a>
+                       </div>
+                   </div>
+               </div>
+ 
+               <div class="portfolio-item-wrapper">
+                   <div class="portfolio-img-background" style="background-image:url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)"></div>
+                   <div class="img-text-wrapper">
+                       <div class="subtitle">
+                           <a href="http://localhost:8080/TrmsApp/appform.html" target="_blank">Approve/Deny Pending Requests</a>
+                       </div>
+                   </div>
+               </div>
+ 
+               <div class="portfolio-item-wrapper">
+                   <div class="portfolio-img-background" style="background-image:url(https://images.unsplash.com/photo-1427751840561-9852520f8ce8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1055&q=80)"></div>
+                   <div class="img-text-wrapper">
+                       <div class="subtitle">
+                           <a href="http://localhost:8080/TrmsApp/approvalviewer.html" target="_blank">View Pending Approval Statuses</a>
+                       </div>
+                   </div>
+               </div>
+ 
+               <div class="portfolio-item-wrapper">
+                   <div class="portfolio-img-background" style="background-image:url(https://images.unsplash.com/photo-1489533119213-66a5cd877091?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80)"></div>
+                   <div class="img-text-wrapper">
+                       <div class="subtitle">
+                           <a href="http://localhost:8080/TrmsApp/trviewer.html" target="_blank">View Your Tuition Tracker</a>
+                       </div>
+                   </div>
+               </div>
+             
+           </div>
+       </div>
+
+    <button type="submit" class="btn btn-primary" onclick="logout()" style="margin-left: 47.5%">Logout</button><br></br>
+
+    <!--static tables-->
+    <div div="container" id="myTable">
+        <table class="table table-striped table-bordered table-hover table-dark">
+            <thead class="table-light">
+                <tr>
+                    <th>Department ID</th>
+                    <th>Deptartment Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>CEO</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Benefits Coordinator</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>HR</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Marketing</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Accounting</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div div="container" id="myTable">
+        <table class="table table-striped table-bordered table-hover table-dark">
+            <thead class="table-light">
+                <tr>
+                    <th>Event ID</th>
+                    <th>Event Name</th>
+                    <th>Coverage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>University Courses</td>
+                    <td>80%</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Seminars</td>
+                    <td>60%</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Certification Preparation</td>
+                    <td>75%</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Certifications</td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Technical Training</td>
+                    <td>90%</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Other</td>
+                    <td>30%</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    
+</body>
+
+<script>
+    //onload function to grab emp Id
+    window.onload = function() {
+        let empEmail = document.cookie.valueOf;
+        console.log(empEmail);
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+
+                let emp = JSON.parse(this.responseText);
+
+                document.getElementById("name").innerHTML = `<b>${emp.empFname} ${emp.empLname}</b>`;
+                document.getElementById("eid").innerHTML = `<div>Employee ID: ${emp.empId}<div>`;
+                document.getElementById("sid").innerHTML = `<div>Department ID: ${emp.deptId}<div>`;
+                document.getElementById("did").innerHTML = `<div>Supervisor ID: ${emp.supId}<div>`;
+
+                let eid = emp.empId;
+
+            }
+        }
+
+        xhttp.open("GET", "http://localhost:8080/TrmsApp/getEmployeeByEmail.do", true);
+
+        xhttp.send();
+    }
+
+    const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper')
+
+    function logout() {
+        window.location.href="http://localhost:8080/TrmsApp";
+    }
+ 
+    //js for main page animations
+    portfolioItems.forEach(portfolioItem => {
+        portfolioItem.addEventListener('mouseover', () => {
+            portfolioItem.childNodes[1].classList.add('img-darken');
+    })
+
+        portfolioItem.addEventListener('mouseout', () => {
+            portfolioItem.childNodes[1].classList.remove('img-darken');
+        })
+    })
+
+
+</script>
+
+</html>

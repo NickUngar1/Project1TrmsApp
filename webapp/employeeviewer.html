@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Viewer</title>
+</head>
+<body>
+
+    <h3>Employee Viewer By ID</h3>
+    <input id="eid" type="number">
+
+    <button onclick="getEmployee()">Get Employee Info</button>
+
+    <p id="result">-</p>
+
+</body>
+
+<script>
+    function getEmployee() {
+        let eid = document.getElementById("eid").value;
+
+        //make ajax call
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+
+                let emp = JSON.parse(this.responseText);
+
+                let information = `<h3>EMP_ID: ${emp.empId}</h3>
+                                   <h3>FIRST NAME: ${emp.empFname}</h3>
+                                   <h3>LAST NAME: ${emp.empLname}</h3>`;
+
+                document.getElementById("result").innerHTML = information;
+
+            }
+        }
+
+        xhttp.open("GET", "http://localhost:8080/TrmsApp/getEmployee.do?id=" + eid, true);
+
+        xhttp.send();
+    }
+</script>
+
+</html>
+

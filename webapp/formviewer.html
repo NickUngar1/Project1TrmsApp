@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Viewer</title>
+</head>
+<body>
+
+    <h3>View Form by Id</h3>
+    <input id="eid" type="number">
+
+    <button onclick="getForm()">Get Form Info</button>
+
+    <p id="result">-</p>
+
+</body>
+
+<script>
+    function getForm() {
+        let eid = document.getElementById("eid").value;
+
+        //make ajax call
+        let xhttp = new XMLHttpRequest();
+
+        
+        xhttp.onreadystatechange = function() {
+            if(this.readystate == 4 && this.status == 200) {
+                console.log(this.responseText);
+
+                let form = JSON.parse(this.responseText);
+
+                let information = `<h3>FORM ID: ${form.form_id}</h3>
+                                   <h3>EMP ID: ${form.emp_id}</h3>
+                                   <h3>EVENT LOCATION: ${form.event_location}</h3>
+                                   <h3>EVENT DESCRIPTION: ${form.event_description}</h3>
+                                   <h3>EVENT COST: ${form.event_cost}</h3>
+                                   <h3>EVENT ID: ${form.event_id}</h3>
+                                   <h3>GRADE ID: ${form.grade_id}</h3>`;
+
+                document.getElementById("result").innerHTML = information;
+
+            }
+        }
+
+        xhttp.open("GET", "http://localhost:8080/TrmsApp/getForm.do?id=" + eid, true);
+
+        xhttp.send();
+    }
+</script>
+
+</html>

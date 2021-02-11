@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Approval Status Viewer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="viewer.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+<body>
+
+    <div div="container" id="myTable">
+        <table class="table table-striped table-bordered table-hover table-dark">
+            <thead class="table-light">
+                <tr>
+                    <th>APP ID</th>
+                    <th>FORM ID</th>
+                    <th>Supervisor Approval Status</th>
+                    <th>Department Head Approval Status</th>
+                    <th>Benefits Coordinator Approval Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="aid"></td>
+                    <td id="fid"></td>
+                    <td id="ss"></td>
+                    <td id="ds"></td>
+                    <td id="bs"></td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <h5>Status 1 = Approved</h5>
+        <h5>Status 2 = Pending</h5>
+
+</body>
+
+<script>
+
+    //pulls up approval table
+    function view() {
+        console.log("inside approval view page");
+
+        let aid = fid;
+    
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+
+                let app = JSON.parse(this.responseText);
+
+                document.getElementById("aid").innerHTML = app.appId;
+                document.getElementById("fid").innerHTML = app.formId;
+                document.getElementById("ss").innerHTML = app.supAppStatus;
+                document.getElementById("ds").innerHTML = app.deptAppStatus;
+                document.getElementById("bs").innerHTML = app.benAppStatus;
+
+
+
+            }
+        }
+
+        xhttp.open("GET", `http://localhost:8080/TrmsApp/getApp.do?id=${aid}` , true);
+
+        xhttp.send();
+    }
+
+    //onload function to grab employee id
+    window.onload = function() { 
+        let empEmail = document.cookie.valueOf;
+        console.log(empEmail);
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+
+                let emp = JSON.parse(this.responseText);
+
+                id = emp.empId;
+
+                getFormId();
+            }
+        }
+
+        xhttp.open("GET", "http://localhost:8080/TrmsApp/getEmployeeByEmail.do", true);
+
+        xhttp.send();
+    }
+
+    //uses employee id to get related form id
+    function getFormId() { 
+        let eid = id;
+        console.log("in getFormId()");
+        console.log("eid" + eid);
+
+        let xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if(this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+
+                let form = JSON.parse(this.responseText);
+
+                fid = form.formId;
+                console.log("form id retrieved as " + fid);
+
+                view();
+            }
+        }
+
+        xhttp.open("GET", `http://localhost:8080/TrmsApp/getForm.do?id=${eid}`, true);
+
+        xhttp.send();
+
+    }
+
+</script>
+
+</html>
