@@ -1,11 +1,35 @@
-Nicholas Ungar Project 1: Tuition Reimbursement Management System Application
+PROJECT NAME
+Project 1 Tuition Reimbursement Management System
+The Tuition Reimbursement System, TRMS, allows users to submit reimbursements for courses and training. The submitted reimbursement must be approved by that employee's supervisor, department head, and benefits coordinator. The benefits coordinator then reviews the grade received before finalizing the reimbursement.
 
-This application allows employees from my make-believe company to sign in to their accounts and perform a variety of actions.
-Employees are able to create tuition reimbursement forms. Upon filling out the required information on the form page, this will add a new form into the database.
-Employees are also able to check their pending reimbursement along with the approval status from their supervisors/department heads/ceo. Depending on the level of the employee, some of these statuses will already be filled out.
-Employees can also approve/decline tuition forms if there is someone directly under them, they are a department head, or they are a ceo. The application will internally manage whos forms each employee is able to see and approve or deny.
-Once a form is approved/denied, the pending reimbursement along with the approval statuses will automatically update so that the employee who created the form can see.
+Technologies Used
+Java
+Oracle SQL
+HTML/CSS
+JavaScript
 
-This application requires a connection to an RDS or other cloud-based database system. I have removed the connecton.properties file needed to connect to my database.
+Features
+Users can sign into their account
+Users can create tuition reimbursement forms
+Users can view their approval statuses and pending reimbursements
+Supervisors, Department Heads, and the CEO can approve forms
 
-Required dependencies for this application include: UTF-8, JUnit, Oracle JDBC, Javax Servlet, Selenium, Cucumber, and Gson.
+To-do list:
+Users can create new accounts
+
+Getting Started
+git clone https://github.com/NickUngar1/Project1TrmsApp.git
+
+Be sure to include BOTH Windows and Unix command
+Be sure to mention if the commands only work on a specific platform (eg. AWS, GCP)
+
+All the code required to get started
+Images of what it should look like
+Usage
+Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
+
+Contributors
+Nicholas Ungar
+
+License
+This project does not require a license.
