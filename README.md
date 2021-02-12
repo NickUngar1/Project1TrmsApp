@@ -7,3 +7,5 @@ Employees can also approve/decline tuition forms if there is someone directly un
 Once a form is approved/denied, the pending reimbursement along with the approval statuses will automatically update so that the employee who created the form can see.
 
 This application requires a connection to an RDS or other cloud-based database system. I have removed the connecton.properties file needed to connect to my database.
+
+Required dependencies for this application include: UTF-8, JUnit, Oracle JDBC, Javax Servlet, Selenium, Cucumber, and Gson.
